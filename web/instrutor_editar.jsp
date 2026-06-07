@@ -1,0 +1,102 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Editar Instrutor</title>
+        <link rel="stylesheet" href="estilo.css">
+    </head>
+
+    <body>
+
+        <header>
+            <h1>🏋️ Sistema Academia</h1>
+        </header>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="AcademiaServlet?action=listarInstrutor" class="ativo">Instrutores</a>
+        </nav>
+
+        <div class="container">
+            <div class="card">
+                <h2>Editar Instrutor</h2>
+
+                <form action="AcademiaServlet" method="post">
+                    <input type="hidden" name="action" value="atualizarInstrutor">
+                    <input type="hidden" name="id" value="${instrutor.id}">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label>Nome</label>
+                            <input type="text" name="nome" value="${instrutor.nome}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>CPF</label>
+                            <input type="text" name="cpf" value="${instrutor.cpf}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Data Nascimento</label>
+                            <input type="date" name="dataNascimento" value="${instrutor.dataNascimento}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Telefone</label>
+                            <input type="text" name="telefone" value="${instrutor.telefone}">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" value="${instrutor.email}">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Especialidade</label>
+                            <input type="text" name="especialidade" value="${instrutor.especialidade}">
+                        </div>
+
+                        <div class="form-group">
+                            <label>CREF</label>
+                            <input type="number" name="cref" value="${instrutor.cref}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Salário</label>
+                            <input type="number" step="0.01" name="salario" value="${instrutor.salario}">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Carga Horária</label>
+                            <input type="number" step="0.5" name="cargaHoraria" value="${instrutor.cargaHoraria}">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select name="status">
+                                <option value="Ativo" ${instrutor.status == 'Ativo' ? 'selected' : ''}>Ativo</option>
+                                <option value="Inativo" ${instrutor.status == 'Inativo' ? 'selected' : ''}>Inativo</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Data Contratação</label>
+                            <input type="date" name="dataContratacao" value="${instrutor.dataContratacao}" required>
+                        </div>
+
+                    </div>
+
+                    <div style="margin-top:16px;display:flex;gap:8px">
+                        <button type="submit" class="btn btn-primary">Atualizar</button>
+                        <a href="AcademiaServlet?action=listarInstrutor" class="btn btn-secondary">Cancelar</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </body>
+</html>

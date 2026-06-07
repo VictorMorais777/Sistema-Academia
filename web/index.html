@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Academia - Sistema</title>
+        <link rel="stylesheet" href="estilo.css">
+    </head>
+
+    <body>
+
+        <header>
+            <h1>🏋️ Sistema de Gestão Academia</h1>
+        </header>
+
+        <nav>
+            <a href="index.html" class="ativo">Home</a>
+            <a href="AcademiaServlet?action=listarAluno">Alunos</a>
+            <a href="AcademiaServlet?action=listarInstrutor">Instrutores</a>
+            <a href="AcademiaServlet?action=listarPlano">Planos</a>
+            <a href="AcademiaServlet?action=listarTreino">Treinos</a>
+            <a href="AcademiaServlet?action=listarPagamento">Pagamentos</a>
+            <a href="AcademiaServlet?action=verificarInadimplencia">Inadimplência</a>
+        </nav>
+
+        <div class="container">
+            <div class="card">
+                <h2>Bem-vindo ao Sistema de Gestão Academia</h2>
+
+                <p style="margin-bottom:20px;color:#555">
+                    Selecione uma opção no menu para começar.
+                </p>
+
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px">
+                    <a href="AcademiaServlet?action=listarAluno" class="btn btn-primary">👤 Alunos</a>
+                    <a href="AcademiaServlet?action=listarInstrutor" class="btn btn-secondary">🧑‍🏫 Instrutores</a>
+                    <a href="AcademiaServlet?action=listarPlano" class="btn btn-primary">📋 Planos</a>
+                    <a href="AcademiaServlet?action=listarTreino" class="btn btn-secondary">🏃 Treinos</a>
+                    <a href="AcademiaServlet?action=listarPagamento" class="btn btn-primary">💰 Pagamentos</a>
+                    <a href="AcademiaServlet?action=verificarInadimplencia" class="btn btn-danger">⚠️ Inadimplência</a>
+                </div>
+
+            </div>
+        </div>
+
+    </body>
+</html>

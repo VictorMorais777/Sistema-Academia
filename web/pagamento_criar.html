@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Novo Pagamento</title>
+        <link rel="stylesheet" href="estilo.css">
+    </head>
+
+    <body>
+
+        <header>
+            <h1>🏋️ Sistema Academia</h1>
+        </header>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="AcademiaServlet?action=listarPagamento" class="ativo">Pagamentos</a>
+        </nav>
+
+        <div class="container">
+            <div class="card">
+                <h2>Registrar Pagamento</h2>
+
+                <form action="AcademiaServlet" method="post">
+                    <input type="hidden" name="action" value="cadastrarPagamento">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label>ID Aluno *</label>
+                            <input type="number" name="idAluno" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Valor *</label>
+                            <input type="number" step="0.01" name="valor" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Data Vencimento *</label>
+                            <input type="date" name="dataVencimento" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Forma Pagamento</label>
+                            <select name="formaPagamento">
+                                <option>PIX</option>
+                                <option>Cartao</option>
+                                <option>Boleto</option>
+                                <option>Dinheiro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select name="status">
+                                <option>Pendente</option>
+                                <option>Pago</option>
+                                <option>Inadimplente</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Referência (ex: Jan/2025)</label>
+                            <input type="text" name="referencia">
+                        </div>
+
+                    </div>
+
+                    <div style="margin-top:16px;display:flex;gap:8px">
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                        <a href="AcademiaServlet?action=listarPagamento" class="btn btn-secondary">Cancelar</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </body>
+</html>

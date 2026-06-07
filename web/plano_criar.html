@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Novo Plano</title>
+        <link rel="stylesheet" href="estilo.css">
+    </head>
+
+    <body>
+
+        <header>
+            <h1>🏋️ Sistema Academia</h1>
+        </header>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="AcademiaServlet?action=listarPlano" class="ativo">Planos</a>
+        </nav>
+
+        <div class="container">
+            <div class="card">
+                <h2>Cadastrar Plano</h2>
+
+                <form action="AcademiaServlet" method="post">
+                    <input type="hidden" name="action" value="cadastrarPlano">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label>Nome do Plano *</label>
+                            <input type="text" name="nomePlano" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Descrição</label>
+                            <input type="text" name="descricao">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Valor Mensal *</label>
+                            <input type="number" step="0.01" name="valorMensal" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Duração (meses) *</label>
+                            <input type="number" name="duracaoMeses" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Acesso Livre</label>
+                            <select name="acessoLivre">
+                                <option>Sim</option>
+                                <option>Nao</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Tipo Convênio</label>
+                            <input type="text" name="tipoConvenio" value="Nenhum">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Qtd Aulas/mês</label>
+                            <input type="number" name="quantidadeAulas" value="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Tipo Plano</label>
+                            <select name="tipoPlano">
+                                <option>Mensal</option>
+                                <option>Trimestral</option>
+                                <option>Anual</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Desconto (%)</label>
+                            <input type="number" step="0.01" name="desconto" value="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select name="status">
+                                <option>Ativo</option>
+                                <option>Inativo</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div style="margin-top:16px;display:flex;gap:8px">
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                        <a href="AcademiaServlet?action=listarPlano" class="btn btn-secondary">Cancelar</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </body>
+</html>

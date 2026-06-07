@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Excluir Aluno</title>
+        <link rel="stylesheet" href="estilo.css">
+    </head>
+
+    <body>
+
+        <header>
+            <h1>🏋️ Sistema Academia</h1>
+        </header>
+
+        <div class="container">
+            <div class="card">
+                <h2>Confirmar Exclusão</h2>
+
+                <p style="margin-bottom:16px">
+                    Tem certeza que deseja excluir este aluno?
+                </p>
+
+                <form action="AcademiaServlet" method="post">
+                    <input type="hidden" name="action" value="excluirAluno">
+                    <input type="hidden" name="id" id="idAluno">
+
+                    <div style="display:flex;gap:8px">
+                        <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
+                        <a href="AcademiaServlet?action=listarAluno" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            const params = new URLSearchParams(window.location.search);
+            document.getElementById('idAluno').value = params.get('id');
+        </script>
+
+    </body>
+</html>

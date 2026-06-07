@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Novo Treino</title>
+        <link rel="stylesheet" href="estilo.css">
+    </head>
+
+    <body>
+
+        <header>
+            <h1>🏋️ Sistema Academia</h1>
+        </header>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="AcademiaServlet?action=listarTreino" class="ativo">Treinos</a>
+        </nav>
+
+        <div class="container">
+            <div class="card">
+                <h2>Cadastrar Treino</h2>
+
+                <form action="AcademiaServlet" method="post">
+                    <input type="hidden" name="action" value="cadastrarTreino">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label>Nome do Treino *</label>
+                            <input type="text" name="nomeTreino" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Objetivo</label>
+                            <input type="text" name="objetivo">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Nível</label>
+                            <select name="nivel">
+                                <option>Iniciante</option>
+                                <option>Intermediario</option>
+                                <option>Avancado</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Duração (min)</label>
+                            <input type="number" name="duracaoMinutos" value="60">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Qtd Exercícios</label>
+                            <input type="number" name="quantidadeExercicios" value="8">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Descrição</label>
+                            <input type="text" name="descricao">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Observações</label>
+                            <input type="text" name="observacoes">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select name="status">
+                                <option>Ativo</option>
+                                <option>Inativo</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div style="margin-top:16px;display:flex;gap:8px">
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                        <a href="AcademiaServlet?action=listarTreino" class="btn btn-secondary">Cancelar</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </body>
+</html>

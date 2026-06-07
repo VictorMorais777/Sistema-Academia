@@ -1,0 +1,70 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Instrutores</title>
+        <link rel="stylesheet" href="estilo.css">
+    </head>
+
+    <body>
+
+        <header>
+            <h1>🏋️ Sistema Academia</h1>
+        </header>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="AcademiaServlet?action=listarAluno">Alunos</a>
+            <a href="AcademiaServlet?action=listarInstrutor">Instrutores</a>
+            <a href="AcademiaServlet?action=listarPlano">Planos</a>
+            <a href="AcademiaServlet?action=listarTreino">Treinos</a>
+            <a href="AcademiaServlet?action=listarPagamento">Pagamentos</a>
+            <a href="AcademiaServlet?action=verificarInadimplencia">Inadimplência</a>
+        </nav>
+
+        <div class="container">
+            <div class="card">
+                <h2>Instrutores</h2>
+
+                <a href="instrutor_criar.jsp" class="btn btn-primary" style="margin-bottom:14px">
+                    + Novo(a)
+                </a>
+
+                <c:if test="${not empty msg}">
+                    <div class="${msg.startsWith('Erro') ? 'msg-err' : 'msg-ok'}">${msg}</div>
+                </c:if>
+
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome/Título</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+
+                    <c:forEach var="item" items="${instrutores}">
+                        <tr>
+                            <td>${item.id}</td>
+
+                            <td>
+                                ${item.nome != null ? item.nome : 
+                                  (item.nomePlano != null ? item.nomePlano : item.nomeTreino)}
+                            </td>
+
+                            <td>${item.status}</td>
+
+                            <td class="acoes">
+                                <a href="AcademiaServlet?action=buscarInstrutorPorId&id=${item.id}" class="btn btn-warning">Editar</a>
+                                <a href="instrutor_excluir.html?id=${item.id}" class="btn btn-danger">Excluir</a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+
+                </table>
+            </div>
+        </div>
+
+    </body>
+</html>

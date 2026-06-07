@@ -1,0 +1,71 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head><meta charset="UTF-8"><title>Editar Pagamento</title><link rel="stylesheet" href="estilo.css"></head>
+    <body>
+        <header><h1>🏋️ Sistema Academia</h1></header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="AcademiaServlet?action=listarPagamento" class="ativo">Pagamentos</a>
+        </nav>
+        <div class="container"><div class="card">
+                <h2>Editar Pagamento</h2>
+                <form action="AcademiaServlet" method="post">
+                    <input type="hidden" name="action" value="atualizarPagamento">
+                    <input type="hidden" name="id" value="${pagamento.id}">
+                    <input type="hidden" name="idAluno" value="${pagamento.idAluno}">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Aluno</label>
+                            <input type="text" value="${pagamento.nomeAluno}" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label>Valor</label>
+                            <input type="number" step="0.01" name="valor" value="${pagamento.valor}" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Data Pagamento</label>
+                            <input type="date" name="dataPagamento" value="${pagamento.dataPagamento}">
+                        </div>
+                        <div class="form-group">
+                            <label>Data Vencimento</label>
+                            <input type="date" name="dataVencimento" value="${pagamento.dataVencimento}" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Forma Pagamento</label>
+                            <select name="formaPagamento">
+                                <option <c:if test="${pagamento.formaPagamento == 'PIX'}">selected</c:if>>PIX</option>
+                                <option <c:if test="${pagamento.formaPagamento == 'Cartao'}">selected</c:if>>Cartao</option>
+                                <option <c:if test="${pagamento.formaPagamento == 'Boleto'}">selected</c:if>>Boleto</option>
+                                <option <c:if test="${pagamento.formaPagamento == 'Dinheiro'}">selected</c:if>>Dinheiro</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Status</label>
+                                <select name="status">
+                                    <option <c:if test="${pagamento.status == 'Pendente'}">selected</c:if>>Pendente</option>
+                                <option <c:if test="${pagamento.status == 'Pago'}">selected</c:if>>Pago</option>
+                                <option <c:if test="${pagamento.status == 'Inadimplente'}">selected</c:if>>Inadimplente</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Multa</label>
+                                <input type="number" step="0.01" name="multa" value="${pagamento.multa}">
+                        </div>
+                        <div class="form-group">
+                            <label>Desconto</label>
+                            <input type="number" step="0.01" name="desconto" value="${pagamento.desconto}">
+                        </div>
+                        <div class="form-group">
+                            <label>Referência</label>
+                            <input type="text" name="referencia" value="${pagamento.referencia}">
+                        </div>
+                    </div>
+                    <div style="margin-top:16px;display:flex;gap:8px">
+                        <button type="submit" class="btn btn-primary">Atualizar</button>
+                        <a href="AcademiaServlet?action=listarPagamento" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div></div>
+    </body></html>

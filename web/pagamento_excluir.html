@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Excluir Pagamento</title>
+        <link rel="stylesheet" href="estilo.css">
+    </head>
+
+    <body>
+
+        <header>
+            <h1>🏋️ Sistema Academia</h1>
+        </header>
+
+        <div class="container">
+            <div class="card">
+                <h2>Confirmar Exclusão de Pagamento</h2>
+
+                <p style="margin-bottom:16px">
+                    Tem certeza que deseja excluir este registro?
+                </p>
+
+                <form action="AcademiaServlet" method="post">
+                    <input type="hidden" name="action" value="excluirPagamento">
+                    <input type="hidden" name="id" id="regId">
+
+                    <div style="display:flex;gap:8px">
+                        <button type="submit" class="btn btn-danger">Confirmar</button>
+                        <a href="AcademiaServlet?action=listarPagamento" class="btn btn-secondary">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById('regId').value =
+                    new URLSearchParams(window.location.search).get('id');
+        </script>
+
+    </body>
+</html>
